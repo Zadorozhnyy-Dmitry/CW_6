@@ -4,6 +4,4 @@ from distributions.apps import DistributionsConfig
 
 app_name = DistributionsConfig.name
 
-urlpatterns = [
-
-]
+urlpatterns = []
