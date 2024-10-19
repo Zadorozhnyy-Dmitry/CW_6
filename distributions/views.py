@@ -8,5 +8,13 @@ class DistributionsListView(ListView):
     """
     Контролер для списка рассылок
     """
+
     model = Distribution
 
+
+class DistributionsDetailView(DetailView):
+    """
+    Контроллер для отображения списка адресатов одной рассылки
+    """
+
+    model = Distribution

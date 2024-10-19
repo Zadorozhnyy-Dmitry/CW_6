@@ -47,6 +47,10 @@ class Client(models.Model):
     class Meta:
         verbose_name = "клиент"
         verbose_name_plural = "клиенты"
+        ordering = (
+            "id",
+            "client_email",
+        )
 
 
 class Distribution(models.Model):

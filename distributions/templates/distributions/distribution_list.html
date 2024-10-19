@@ -33,7 +33,7 @@
                     {% endif %}
                 </li>
             </ul>
-            <a href="#" class="btn btn-lg btn-block btn-outline-primary">Список адресатов</a>
+            <a href="{% url 'distributions:distribution_clients' object.pk %}" class="btn btn-lg btn-block btn-outline-primary">Список адресатов</a>
         </div>
     </div>
     {% endfor %}
