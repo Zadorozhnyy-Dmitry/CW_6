@@ -89,7 +89,7 @@ class Distribution(models.Model):
     owner = models.ForeignKey(
         Owner, on_delete=models.CASCADE, verbose_name="Заказчик", **NULLABLE
     )
-    clients = models.ManyToManyField(Client)
+    clients = models.ManyToManyField(Client, verbose_name="Адресаты")
 
     def __str__(self):
         return f"Рассылка {self.name}\nДата первой рассылки: {self.first_send}\nПериод рассылки {self.period}"
