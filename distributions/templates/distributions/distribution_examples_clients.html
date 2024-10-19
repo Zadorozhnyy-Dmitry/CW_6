@@ -1,13 +1,13 @@
 {% extends 'distributions/base.html' %}
-{% block title %}НеСпам{% endblock title %}
+
 {% block content %}
 
 <div class="card">
     <div class="card-header">
-        <h3>{{ object.name }}</h3>
+        <h3>Образец</h3>
     </div>
     <div class="card-body">
-        <b>Список клиентов для рассылки "{{object.name}}"</b>
+        <b>Список клиентов для рассылки "Образец"</b>
         <div class="table-responsive small">
             <table class="table table-striped table-sm">
                 <thead>
@@ -20,24 +20,31 @@
 
                 </tr>
                 </thead>
-                {% for client in object.clients.all %}
+
                 <tbody>
                 <tr>
-                    <td>{{ client.id }}</td>
-                    <td>{{ client.name }}</td>
-                    <td>{{ client.client_email }}</td>
-                    <td>{{ client.comments }}</td>
+                    <td>1</td>
+                    <td>client_1</td>
+                    <td>client_1@example.com</td>
+                    <td>Первый клиент</td>
                     <td>
-                        <form method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                        </form>
+                        <a href="#" class="btn btn-danger btn-sm">Удалить</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>client_2</td>
+                    <td>client_2@example.com</td>
+                    <td>Второй клиент</td>
+                    <td>
+                        <a href="#" class="btn btn-danger btn-sm">Удалить</a>
                     </td>
 
                 </tr>
 
                 </tbody>
-                {% endfor %}
+
             </table>
 
         </div>

@@ -1,15 +1,17 @@
 from django.urls import path
 
 from distributions.apps import DistributionsConfig
-from distributions.views import DistributionsListView, DistributionsDetailView
+from distributions import views
 
 app_name = DistributionsConfig.name
 
 urlpatterns = [
-    path("", DistributionsListView.as_view(), name="distributions_list"),
+    path("", views.index, name="distributions_examples"),
+    path("examples/clients/", views.clients_list_examples, name="distributions_examples_clients"),
+    path("list/", views.DistributionsListView.as_view(), name="distributions_list"),
     path(
         "<int:pk>/clients/",
-        DistributionsDetailView.as_view(),
+        views.DistributionsDetailView.as_view(),
         name="distribution_clients",
     ),
 ]
