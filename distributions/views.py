@@ -2,7 +2,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.shortcuts import render
 
 from distributions.models import Distribution
-from django.http import HttpResponse
 
 
 def index(request):

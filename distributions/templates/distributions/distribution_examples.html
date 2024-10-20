@@ -1,5 +1,6 @@
 {% extends 'distributions/base.html' %}
 {% block title %}НеСпам{% endblock title %}
+{% block header %}Cервис управления рассылками, администрирования и получения статистики{% endblock header %}
 {% block content %}
 
 <div class="row">
@@ -17,8 +18,9 @@
                         <li>Первая отправка: 17 октября 2024 г. 12:00</li>
                         <li>Статус: создана</li>
                     </ul>
-                    <a href="{% url 'distributions:distributions_examples_clients' %}"
-                       class="btn btn-lg btn-block btn-outline-primary">Список адресатов</a>
+                    <a class="btn btn-lg btn-outline-primary"
+                       href="{% url 'distributions:distributions_examples_clients' %}" role="button">Изменить</a>
+                    <a class="btn btn-lg btn-outline-danger" href="#" role="button">Удалить</a>
                 </div>
             </div>
         </div>
@@ -37,8 +39,9 @@
                         <li>Первая отправка: 17 октября 2024 г. 12:00</li>
                         <li>Статус: запущена</li>
                     </ul>
-                    <a href="{% url 'distributions:distributions_examples_clients' %}"
-                       class="btn btn-lg btn-block btn-outline-primary">Список адресатов</a>
+                    <a class="btn btn-lg btn-outline-primary"
+                       href="{% url 'distributions:distributions_examples_clients' %}" role="button">Изменить</a>
+                    <a class="btn btn-lg btn-outline-danger" href="#" role="button">Удалить</a>
                 </div>
             </div>
         </div>
@@ -57,8 +60,9 @@
                         <li>Первая отправка: 17 октября 2024 г. 12:00</li>
                         <li>Статус: завершена</li>
                     </ul>
-                    <a href="{% url 'distributions:distributions_examples_clients' %}"
-                       class="btn btn-lg btn-block btn-outline-primary">Список адресатов</a>
+                    <a class="btn btn-lg btn-outline-primary"
+                       href="{% url 'distributions:distributions_examples_clients' %}" role="button">Изменить</a>
+                    <a class="btn btn-lg btn-outline-danger" href="#" role="button">Удалить</a>
                 </div>
             </div>
         </div>
