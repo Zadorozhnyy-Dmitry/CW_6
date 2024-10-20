@@ -1,37 +1,37 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+from clients.models import Client
 
 
 class ClientsListView(ListView):
     """
     Контроллер для отображения списка клиентов
     """
-    pass
-
-
-class ClientsDetailView(DetailView):
-    """
-    Контроллер для отображения клиента
-    """
-    pass
+    model = Client
 
 
 class ClientsCreateView(CreateView):
     """
     Контроллер для создания клиента
     """
-    pass
+    model = Client
+    fields = ('name', 'client_email', 'comments',)
+    success_url = reverse_lazy('clients:clients_list')
 
 
 class ClientsUpdateView(UpdateView):
     """
     Контроллер для изменения клиента
     """
-    pass
+    model = Client
+    fields = ('name', 'client_email', 'comments',)
+    success_url = reverse_lazy('clients:clients_list')
 
 
 class ClientsDeleteView(DeleteView):
     """
     Контроллер для удаления клиента из списка
     """
-    pass
+    model = Client
+    success_url = reverse_lazy('clients:clients_list')

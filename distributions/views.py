@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 from distributions.models import Distribution
 
@@ -37,18 +38,23 @@ class DistributionsCreateView(CreateView):
     """
     Контроллер создания рассылки
     """
-    pass
+    model = Distribution
+    fields = ('name', 'first_send_date', 'first_send_time', 'period', 'clients')
+    success_url = reverse_lazy('distributions:distributions_list')
 
 
 class DistributionsUpdateView(UpdateView):
     """
     Контроллер изменения рассылки
     """
-    pass
+    model = Distribution
+    fields = ('name', 'first_send_date', 'first_send_time', 'period', 'clients')
+    success_url = reverse_lazy('distributions:distributions_list')
 
 
 class DistributionsDeleteView(DeleteView):
     """
     Контроллер удаления рассылки
     """
-    pass
+    model = Distribution
+    success_url = reverse_lazy('distributions:distributions_list')

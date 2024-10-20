@@ -14,4 +14,6 @@ urlpatterns = [
         views.DistributionsDetailView.as_view(),
         name="distribution_clients",
     ),
+    path("edit/<int:pk>/", views.DistributionsUpdateView.as_view(), name="distributions_edit"),
+    path("create/", views.DistributionsCreateView.as_view(), name="distributions_create"),
 ]

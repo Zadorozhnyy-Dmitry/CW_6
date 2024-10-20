@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 from clients.models import Client
@@ -23,9 +25,15 @@ class Distribution(models.Model):
     name = models.CharField(
         max_length=150, verbose_name="Название", help_text="Введите название рассылки"
     )
-    first_send = models.DateTimeField(
-        verbose_name="Дата и время первой отправки",
-        help_text="Укажите дату и время первой отправки",
+    first_send_date = models.DateField(
+        default=datetime.now,
+        verbose_name="Дата первой отправки",
+        help_text="Укажите дату первой отправки",
+    )
+    first_send_time = models.TimeField(
+        default=datetime.now,
+        verbose_name="Время первой отправки",
+        help_text="Укажите время первой отправки",
     )
     period = models.CharField(
         max_length=20,

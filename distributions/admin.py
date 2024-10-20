@@ -8,13 +8,14 @@ class DistributionAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
-        "first_send",
+        "first_send_date",
+        "first_send_time",
         "period",
         "status",
         "owner",
     )
     list_filter = ("owner",)
-    ordering = ("first_send",)
+    ordering = ("first_send_date",)
 
 
 @admin.register(Message)

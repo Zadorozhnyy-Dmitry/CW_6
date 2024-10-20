@@ -1,5 +1,6 @@
 {% extends 'distributions/base.html' %}
-
+{% block title %}НеСпам{% endblock title %}
+{% block header %}Cервис управления рассылками, администрирования и получения статистики{% endblock header %}
 {% block content %}
 
 <div class="card">
@@ -16,7 +17,6 @@
                     <th scope="col">Имя</th>
                     <th scope="col">Email</th>
                     <th scope="col">Комментарий</th>
-                    <th scope="col"></th>
 
                 </tr>
                 </thead>
@@ -27,9 +27,6 @@
                     <td>client_1</td>
                     <td>client_1@example.com</td>
                     <td>Первый клиент</td>
-                    <td>
-                        <a href="#" class="btn btn-danger btn-sm">Удалить</a>
-                    </td>
 
                 </tr>
                 <tr>
@@ -37,9 +34,6 @@
                     <td>client_2</td>
                     <td>client_2@example.com</td>
                     <td>Второй клиент</td>
-                    <td>
-                        <a href="#" class="btn btn-danger btn-sm">Удалить</a>
-                    </td>
 
                 </tr>
 
@@ -50,7 +44,7 @@
         </div>
     </div>
     <div class="card-footer">
-        <a href="#" class="btn btn-outline-success">Добавить клиента</a>
+
     </div>
 </div>
 

@@ -1,0 +1,46 @@
+{% extends 'distributions/base.html' %}
+{% block title %}Список клиентов{% endblock title %}
+{% block content %}
+<div class="col-12 mb-4">
+    <a class="btn btn-outline-primary" href="#">Добавить клиента</a>
+</div>
+<div class="table-responsive small">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Email</th>
+            <th scope="col">Комментарий</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+        </tr>
+        </thead>
+        {% for object in object_list %}
+        <tbody>
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.client_email }}</td>
+            <td>{{ object.comments }}</td>
+            <td>
+                <a href="#" class="btn btn-primary btn-sm">Изменить</a>
+            </td>
+            <td>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                </form>
+            </td>
+
+        </tr>
+
+        </tbody>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

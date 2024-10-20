@@ -2,7 +2,9 @@
 {% block title %}Список рассылок{% endblock title %}
 {% block content %}
 
-
+<div class="col-12 mb-4">
+    <a class="btn btn-outline-primary" href="{% url 'distributions:distributions_create' %}">Создать рассылку</a>
+</div>
 <div class="card-deck mb-3 text-center">
     {% for object in object_list %}
     <div class="col-4">
@@ -23,8 +25,10 @@
                     {{ object.name }}
                 </h3>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>Первая отправка: {{ object.first_send }}</li>
-                    <li>Статус:
+                    <li><b>Первая отправка</b></li>
+                    <li>Дата: {{ object.first_send_date }}</li>
+                    <li>Время: {{ object.first_send_time }}</li>
+                    <li><b>Статус:</b>
                         {% if object.status == 'created' %}
                         создана
                         {% elif object.status == 'launched' %}
@@ -34,8 +38,15 @@
                         {% endif %}
                     </li>
                 </ul>
+
+                <div class="pricing-header px-3 pb-md-3 mx-auto text-center">
+                    <a href="{% url 'distributions:distribution_clients' object.pk %}" class="text-primary">
+                        <h5>Список адресатов</h5>
+                    </a>
+                </div>
+
                 <a class="btn btn-outline-primary"
-                   href="{% url 'distributions:distribution_clients' object.pk %}" role="button">Изменить</a>
+                   href="#" role="button">Изменить</a>
                 <a class="btn btn-outline-danger" href="#" role="button">Удалить</a>
 
             </div>
