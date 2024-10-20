@@ -1,56 +1,8 @@
 from django.db import models
 
+from clients.models import Client
 from config.settings import NULLABLE
-
-
-class Owner(models.Model):
-    """
-    Модель описывает заказчика рассылки (адресанта рассылки)
-    """
-
-    name = models.CharField(max_length=150, verbose_name="Заказчик рассылки")
-    owner_email = models.EmailField(verbose_name="почта заказчика", unique=True)
-
-    def __str__(self):
-        return f"{self.name} email: {self.owner_email}"
-
-    class Meta:
-        verbose_name = "заказчик"
-        verbose_name_plural = "заказчики"
-
-
-class Client(models.Model):
-    """
-    Модель описывает клиента сервиса (адресат рассылки)
-    """
-
-    name = models.CharField(
-        max_length=150,
-        verbose_name="Ф.И.О",
-        help_text="Укажите фамилию, имя и отчество клиента",
-        **NULLABLE,
-    )
-    client_email = models.EmailField(
-        verbose_name="email клиента", help_text="Укажите электронный адрес клиента"
-    )
-    comments = models.CharField(
-        max_length=150, verbose_name="Комментарий", help_text="Комментарий", **NULLABLE
-    )
-
-    owner = models.ForeignKey(
-        Owner, on_delete=models.CASCADE, verbose_name="Заказчик", **NULLABLE
-    )
-
-    def __str__(self):
-        return f"{self.client_email} ({self.name})"
-
-    class Meta:
-        verbose_name = "клиент"
-        verbose_name_plural = "клиенты"
-        ordering = (
-            "id",
-            "client_email",
-        )
+from users.models import User
 
 
 class Distribution(models.Model):
@@ -91,7 +43,7 @@ class Distribution(models.Model):
     )
 
     owner = models.ForeignKey(
-        Owner, on_delete=models.CASCADE, verbose_name="Заказчик", **NULLABLE
+        User, on_delete=models.CASCADE, verbose_name="Заказчик", **NULLABLE
     )
     clients = models.ManyToManyField(Client, verbose_name="Адресаты")
 

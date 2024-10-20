@@ -1,28 +1,6 @@
 from django.contrib import admin
 
-from distributions.models import Owner, Distribution, Client, Message, Attempt
-
-
-# Register your models here.
-@admin.register(Owner)
-class OwnerAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "name",
-        "owner_email",
-    )
-
-
-@admin.register(Client)
-class ClientAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "name",
-        "client_email",
-        "comments",
-        "owner",
-    )
-    list_filter = ("owner",)
+from distributions.models import Distribution, Message, Attempt
 
 
 @admin.register(Distribution)
