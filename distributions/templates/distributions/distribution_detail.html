@@ -24,7 +24,7 @@
     <div class="card-body">
         <b>Список клиентов для рассылки "{{object.name}}"</b>
         <div class="table-responsive small">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-hover">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="card-footer">
-        <a class="btn btn-outline-primary" href="{% url 'distributions:distributions_edit' object.pk %}" role="button">Редактировать</a>
+        <a class="btn btn-outline-primary" href="{% url 'distributions:distribution_edit' object.pk %}" role="button">Редактировать</a>
         <a class="btn btn-outline-primary" href="{% url 'distributions:distributions_list' %}" role="button">Назад</a>
     </div>
 </div>

@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="col-12 mb-4">
-    <a class="btn btn-outline-primary" href="{% url 'distributions:distributions_create' %}">Создать рассылку</a>
+    <a class="btn btn-outline-primary" href="{% url 'distributions:distribution_create' %}">Создать рассылку</a>
 </div>
 <div class="card-deck mb-3 text-center">
     {% for object in object_list %}
@@ -46,8 +46,8 @@
                 </div>
 
                 <a class="btn btn-outline-primary"
-                   href="#" role="button">Изменить</a>
-                <a class="btn btn-outline-danger" href="#" role="button">Удалить</a>
+                   href="{% url 'distributions:distribution_edit' object.pk %}" role="button">Изменить</a>
+                <a class="btn btn-outline-danger" href="{% url 'distributions:distribution_delete' object.pk %}" role="button">Удалить</a>
 
             </div>
         </div>

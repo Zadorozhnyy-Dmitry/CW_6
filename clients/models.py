@@ -12,15 +12,12 @@ class Client(models.Model):
     name = models.CharField(
         max_length=150,
         verbose_name="Ф.И.О",
-        help_text="Укажите фамилию, имя и отчество клиента",
         **NULLABLE,
     )
     client_email = models.EmailField(
-        verbose_name="email клиента", help_text="Укажите электронный адрес клиента"
+        verbose_name="email клиента",
     )
-    comments = models.CharField(
-        max_length=150, verbose_name="Комментарий", help_text="Комментарий", **NULLABLE
-    )
+    comments = models.CharField(max_length=150, verbose_name="Комментарий", **NULLABLE)
 
     owner = models.ForeignKey(
         User, on_delete=models.CASCADE, verbose_name="Заказчик", **NULLABLE

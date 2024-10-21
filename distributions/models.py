@@ -23,31 +23,28 @@ class Distribution(models.Model):
         ("completed", "завершена"),
     }
     name = models.CharField(
-        max_length=150, verbose_name="Название", help_text="Введите название рассылки"
+        max_length=150,
+        verbose_name="Название",
     )
     first_send_date = models.DateField(
         default=datetime.now,
         verbose_name="Дата первой отправки",
-        help_text="Укажите дату первой отправки",
     )
     first_send_time = models.TimeField(
         default=datetime.now,
         verbose_name="Время первой отправки",
-        help_text="Укажите время первой отправки",
     )
     period = models.CharField(
         max_length=20,
         choices=PERIOD_CHOICES,
         default="ежедневно",
         verbose_name="Периодичность рассылки",
-        help_text="Укажите период рассылки",
     )
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
         default="created",
         verbose_name="Статус рассылки",
-        help_text="Статус рассылки: завершена, создана, запущена",
     )
 
     owner = models.ForeignKey(
